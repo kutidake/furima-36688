@@ -4,10 +4,12 @@
 
 |Column            |Type  |Options    |
 |nickname          |string|null: false|
-|email             |string|null: false|
+|email             |string|null: false,unique: true|
 |encrypted_password|string|null: false|
-|lastname          |string|null: false|
-|firstname         |string|null: false|
+|last_name          |string|null: false|
+|last_name_f          |string|null: false|
+|first_name         |string|null: false|
+|first_name_f         |string|null: false|
 |birth             |date  |null: false|
 
 ### Association
@@ -17,9 +19,8 @@
 ## itemsテーブル
 
 |Column            |Type   |Options    |
-|image             |string |null: false|
-|itemname          |string |null: false|
-|explanation       |string |null: false|
+|item_name         |string |null: false|
+|explanation       |text   |null: false|
 |category          |string |null: false|
 |condition         |string |null: false|
 |charge            |integer|null: false|
@@ -48,9 +49,10 @@
 |postcode       |integer|null: false|
 |prefectures    |string |null: false|
 |municipalities |string |null: false|
-|banti          |string |null: false|
+|house_number   |string |null: false|
 |building       |string |
-|telephone      |integer|null: false|
+|telephone      |string |null: false|
+|order          | references | null: false, foreign_key: true  |
 
 ### Association
-- has_one :orders
+- belongs_to :order
