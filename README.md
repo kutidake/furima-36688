@@ -21,17 +21,17 @@
 |Column            |Type   |Options    |
 |item_name         |string |null: false|
 |explanation       |text   |null: false|
-|category          |string |null: false|
-|condition         |string |null: false|
-|charge            |integer|null: false|
-|area              |string |null: false|
-|hassoumadenonissuu|integer|null: false|
+|category_id          |integer |null: false|
+|condition_id         |integer |null: false|
+|charge_id            |integer|null: false|
+|area_id              |integer |null: false|
+|days_id              |integer|null: false|
 |price             |integer|null: false|
 |user              | references | null: false, foreign_key: true  |
 
 ### Association
-- belongs_to :users
-- has_one :orders
+- belongs_to :user
+- has_one :order
 
 ## ordersテーブル
 
@@ -40,14 +40,15 @@
 |item              | references | null: false, foreign_key: true  |
 
 ### Association
-- has_many :users
-- has_one :items
+- belongs_to :user
+- belongs_to :item
+- has_one :addresses
 
-## addresssテーブル
+## addressesテーブル
 
 |Column         |Type   |Options    |
-|postcode       |integer|null: false|
-|prefectures    |string |null: false|
+|post_code      |string |null: false|
+|area_id    |integer |null: false|
 |municipalities |string |null: false|
 |house_number   |string |null: false|
 |building       |string |
