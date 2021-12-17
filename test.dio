@@ -18,7 +18,7 @@
                 <mxCell id="23" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="400" y="110" width="220" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="item_name&#10;explanationcategry&#10;condition&#10;charge&#10;area&#10;date&#10;price&#10;user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="23" vertex="1">
+                <mxCell id="26" value="item_name&#10;explanation&#10;category_id&#10;condition_id&#10;charge_id&#10;area_id&#10;days_id&#10;price&#10;user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="23" vertex="1">
                     <mxGeometry y="26" width="220" height="144" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
