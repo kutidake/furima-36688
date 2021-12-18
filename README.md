@@ -25,7 +25,7 @@
 |condition_id         |integer |null: false|
 |charge_id            |integer|null: false|
 |area_id              |integer |null: false|
-|days_id              |integer|null: false|
+|day_id              |integer|null: false|
 |price             |integer|null: false|
 |user              | references | null: false, foreign_key: true  |
 
@@ -42,7 +42,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addressesテーブル
 
