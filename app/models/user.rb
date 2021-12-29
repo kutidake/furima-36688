@@ -11,7 +11,7 @@ class User < ApplicationRecord
           validates :last_name
           validates :first_name
         end
-         validates :first_name_f, :last_name_f,format:{with:/[^\x01-\x7Eｦ-ﾟ]+/,message:"カタカナでご入力下さい。"}
+         validates :first_name_f, :last_name_f,format:{with:/[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,message:"カタカナでご入力下さい。"}
          validates :last_name, presence: true
          validates :last_name_f, presence: true
          validates :first_name, presence: true
