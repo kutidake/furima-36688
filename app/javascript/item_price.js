@@ -10,6 +10,5 @@ window.addEventListener('load', () => {
     const addTaxTotal = document.getElementById("profit");
     Total = (inputValue - Tax);
     addTaxTotal.innerHTML = Math.floor(Total);
-    console.log(Total);
   })
 });
