@@ -1,7 +1,13 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one :order
+  # has_one :order
   has_one_attached :image
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :area
+  belongs_to_active_hash :charge
+  belongs_to_active_hash :scheduled_delivery
 
   validates :image, presence: true
   validates :item_name, presence: true
