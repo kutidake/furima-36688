@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-  # def index
-    # @items = Item.all
-  # end
+  def index
+    @items = Item.all.order("created_at DESC")
+    # @item = Item.find(params[:item_id])
+  end
 
   def new
     @item = Item.new
