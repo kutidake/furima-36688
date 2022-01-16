@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+  
 
   def create
     @item = Item.new(item_params)
@@ -18,6 +19,29 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'articles/new'
   devise_for :users
   root to: 'items#index'
-  resources :articles
 
-  resources :items, only:[:index, :new, :create]
+  resources :items
+  resources :users,only: :show
 end
