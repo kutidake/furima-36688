@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :post_code, :area_id, :municipalities, :house_number, :building, :telephone, :user_id, :item_id, :order_id, :token
+  attr_accessor :post_code, :area_id, :municipalities, :house_number, :building, :telephone, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力して下さい' }
@@ -8,8 +8,8 @@ class OrderAddress
     validates :house_number
     validates :telephone,format: { with: /\A\d{10,11}\z/, message: "を半角数字で入力して下さい" }
     validates :user_id
-    validates :token, presence: true
-    validates :item_id, presence: true
+    validates :token
+    validates :item_id
   end
   validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
 

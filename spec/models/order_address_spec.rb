@@ -5,6 +5,7 @@ RSpec.describe OrderAddress, type: :model do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
     @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
+    sleep(0.1)
   end
   
   describe '購入情報の保存' do
@@ -51,6 +52,16 @@ RSpec.describe OrderAddress, type: :model do
       end
       it 'telepphoneが半角数字以外だと保存できないこと' do
         @order_address.telephone = '０８０１２３４５６７８'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Telephone を半角数字で入力して下さい")
+      end
+      it 'telepphoneが9桁以下だと保存できないこと' do
+        @order_address.telephone = '080123456'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Telephone を半角数字で入力して下さい")
+      end
+      it 'telepphoneが12桁以上だと保存できないこと' do
+        @order_address.telephone = '080123456789101112'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Telephone を半角数字で入力して下さい")
       end
