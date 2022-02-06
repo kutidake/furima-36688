@@ -9,6 +9,7 @@ class OrderAddress
     validates :telephone,format: { with: /\A\d{10,11}\z/, message: "を半角数字で入力して下さい" }
     validates :user_id
     validates :token, presence: true
+    validates :item_id, presence: true
   end
   validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
 
