@@ -6,6 +6,5 @@ Rails.application.routes.draw do
 
   resources :items do
    resources :orders, only:[:create,:new,:index]
-   resources :addresses, only:[:create,:index]
   end
 end
