@@ -1,19 +1,19 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :post_code, :area_id, :municipalities, :house_number, :building, :telephone, :order
+  attr_accessor :post_code, :area_id, :municipalities, :house_number, :building, :telephone, :user_id, :item_id, :order_id, :token
 
   with_options presence: true do
-    validates :post_code, presence: true
-    validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
-    validates :municipalities, presence: true
-    validates :house_number, presence: true
-    validates :telephone, presence: true
-    validates :order, presence: true
-
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力して下さい' }
+    validates :municipalities
+    validates :house_number
+    validates :telephone,format: { with: /\A\d{10,11}\z/, message: "を半角数字で入力して下さい" }
+    validates :user_id
+    validates :token, presence: true
   end
+  validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
 
   def save
-    order = Order.create(user_id: user_id,price:price)
-    Address.create(post_code: post_code, area_id: area_id, municipalities: municipalities, house_number: house_number, building: building, order_id: order.id)
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Address.create(post_code: post_code, area_id: area_id, municipalities: municipalities, house_number: house_number, building: building, telephone: telephone, order_id: order.id)
   end
 end
