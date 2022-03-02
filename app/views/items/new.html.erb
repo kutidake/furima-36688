@@ -1,6 +1,5 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
-  <div id="previews"></div>
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
 
   </header>
@@ -17,6 +16,7 @@
       </div>
       <div class="click-upload">
         <p>
+          <div id="previews"></div>
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image,id:"item-image" %>
